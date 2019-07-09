@@ -3,8 +3,8 @@
     <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
       <template v-if="i == 1">
         <div class="exploder">
-          <img src="./assets/stairs-books.png" class="books" alt :style="{top: booksTop+'rem'}" />
-          <img src="./assets/stairs-ball.png" class="ball" alt :style="{top: ballTop+'rem'}" />
+          <img src="./assets/stairs-books.png" class="books" alt :style="{top: booksTop+'px'}" />
+          <img src="./assets/stairs-ball.png" class="ball" alt :style="{top: ballTop+'px'}" />
         </div>
       </template>
     </section>
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       scrolled: false,
-      booksTop: 22.45,
+      booksTop: 362.45,
       ballTop: 0,
       currentY: 0
     };
@@ -27,17 +27,22 @@ export default {
     handleScroll() {
       // scrolled up
 
-      if (window.scrollY < this.currentY) {
-        this.booksTop -= 0.1;
-        this.ballTop += 0.1;
+      if (window.scrollY < this.currentY && window.scrollY % 10 == 0) {
+        console.log('up: ', window.scrollY)
+        // console.log(window.scrollY % 10)
+
+        this.booksTop -= 15;
+        this.ballTop += 15;
       }
       // scrolled up
-      else if (window.scrollY > this.currentY) {
-        this.booksTop += 0.1;
-        this.ballTop -= 0.1;
+      else if (window.scrollY > this.currentY && window.scrollY % 10 == 0) {
+        console.log('down: ', window.scrollY)
+        //console.log(window.scrollY % 10)
+        this.booksTop += 15;
+        this.ballTop -= 15;
       }
       this.scrolled = this.currentY > 0;
-      console.log(this.scrolled, this.currentY);
+      //console.log(this.scrolled, this.currentY);
       this.currentY = window.scrollY;
     }
   },
