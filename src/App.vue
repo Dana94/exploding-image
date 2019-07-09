@@ -1,38 +1,58 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
+      <template v-if="i == 1">
+        <div class="exploder">
+          <img src="./assets/stairs-books.png" class="books" alt :style="{top: booksTop+'rem'}" />
+          <img src="./assets/stairs-ball.png" class="ball" alt :style="{top: ballTop+'rem'}" />
+        </div>
+      </template>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
-  data () {
+  name: "app",
+  // https://stackoverflow.com/questions/44804945/vue-js-how-to-react-to-page-scrolling
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      scrolled: false,
+      booksTop: 22.45,
+      ballTop: 0,
+      currentY: 0
+    };
+  },
+  methods: {
+    handleScroll() {
+      // scrolled up
+
+      if (window.scrollY < this.currentY) {
+        this.booksTop -= 0.1;
+        this.ballTop += 0.1;
+      }
+      // scrolled up
+      else if (window.scrollY > this.currentY) {
+        this.booksTop += 0.1;
+        this.ballTop -= 0.1;
+      }
+      this.scrolled = this.currentY > 0;
+      console.log(this.scrolled, this.currentY);
+      this.currentY = window.scrollY;
     }
+  },
+  created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
   }
-}
+};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -40,7 +60,8 @@ export default {
   margin-top: 60px;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
@@ -56,5 +77,23 @@ li {
 
 a {
   color: #42b983;
+}
+
+section {
+  height: 250px;
+  &.dark {
+    background-color: black;
+  }
+}
+//.exploder {
+// position: fixed;
+//}
+img {
+  position: absolute;
+  left: 0;
+  transition: 0.5s;
+}
+.books {
+  left: 0.5rem;
 }
 </style>
