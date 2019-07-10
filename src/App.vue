@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
+    <section v-for="i in 10" :key="i.id" :class="{dark: i % 2 == 0}">
       <template v-if="i == 1">
         <div class="exploder">
           <img src="./assets/larger-books.png" class="books" alt :style="{top: booksTop+'px'}" />
@@ -17,40 +17,39 @@ export default {
   // https://stackoverflow.com/questions/44804945/vue-js-how-to-react-to-page-scrolling
   data() {
     return {
-      scrolled: false,
-      booksTop: 0, //362.45,
+      booksTop: 0,
       ballTop: 0,
       currentY: 0
     };
   },
   methods: {
     handleScroll() {
+      // back top top
+      if(window.scrollY == 0){
+        console.log("back to top: ", window.scrollY);
+        this.booksTop = 0;
+        this.ballTop = 0;
+      }
       // scrolled up
-
-      if (window.scrollY < this.currentY && window.scrollY % 10 == 0) {
+      else if (this.currentY > 0 && window.scrollY < this.currentY){// && window.scrollY % 10 == 0) {
         console.log("up: ", window.scrollY);
-        // console.log(window.scrollY % 10)
-
-        this.booksTop -= 15;
-        this.ballTop += 15;
+        this.booksTop -= 4.53386;
+        this.ballTop -= .755645;
       }
-      // scrolled up
-      else if (window.scrollY > this.currentY && window.scrollY % 10 == 0) {
+      // scrolled down
+      else if (this.currentY > 0 && window.scrollY > this.currentY){// && window.scrollY % 10 == 0) {
         console.log("down: ", window.scrollY);
-        //console.log(window.scrollY % 10)
-        this.booksTop += 15;
-        this.ballTop -= 15;
+        this.booksTop += 4.53386;
+        this.ballTop += .755645;
       }
-      this.scrolled = this.currentY > 0;
-      //console.log(this.scrolled, this.currentY);
       this.currentY = window.scrollY;
     }
   },
   created() {
-    //window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
-    //window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
