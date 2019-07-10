@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
+    <section v-for="i in 10" :key="i.id" :class="{dark: i % 2 == 0}">
       <template v-if="i == 1">
         <div class="exploder">
-          <img src="./assets/stairs-books.png" class="books" alt :style="{top: booksTop+'px'}" />
-          <img src="./assets/stairs-ball.png" class="ball" alt :style="{top: ballTop+'px'}" />
+          <img src="./assets/larger-books.png" class="books" alt :style="{top: booksTop+'px'}" />
+          <img src="./assets/larger-ball.png" class="ball" alt :style="{top: ballTop+'px'}" />
         </div>
       </template>
     </section>
@@ -17,32 +17,31 @@ export default {
   // https://stackoverflow.com/questions/44804945/vue-js-how-to-react-to-page-scrolling
   data() {
     return {
-      scrolled: false,
-      booksTop: 362.45,
+      booksTop: 0,
       ballTop: 0,
       currentY: 0
     };
   },
   methods: {
     handleScroll() {
-      // scrolled up
-
-      if (window.scrollY < this.currentY && window.scrollY % 10 == 0) {
-        console.log('up: ', window.scrollY)
-        // console.log(window.scrollY % 10)
-
-        this.booksTop -= 15;
-        this.ballTop += 15;
+      // back top top
+      if(window.scrollY == 0){
+        console.log("back to top: ", window.scrollY);
+        this.booksTop = 0;
+        this.ballTop = 0;
       }
       // scrolled up
-      else if (window.scrollY > this.currentY && window.scrollY % 10 == 0) {
-        console.log('down: ', window.scrollY)
-        //console.log(window.scrollY % 10)
-        this.booksTop += 15;
-        this.ballTop -= 15;
+      else if (this.currentY > 0 && window.scrollY < this.currentY){// && window.scrollY % 10 == 0) {
+        console.log("up: ", window.scrollY);
+        this.booksTop -= 4.53386;
+        this.ballTop -= .755645;
       }
-      this.scrolled = this.currentY > 0;
-      //console.log(this.scrolled, this.currentY);
+      // scrolled down
+      else if (this.currentY > 0 && window.scrollY > this.currentY){// && window.scrollY % 10 == 0) {
+        console.log("down: ", window.scrollY);
+        this.booksTop += 4.53386;
+        this.ballTop += .755645;
+      }
       this.currentY = window.scrollY;
     }
   },
@@ -94,11 +93,17 @@ section {
 // position: fixed;
 //}
 img {
+  // position: absolute;
+  // left: 0;
+  // transition: 0.5s;
   position: absolute;
-  left: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  max-height: 100%;
+  max-width: 100%;
   transition: 0.5s;
-}
-.books {
-  left: 0.5rem;
 }
 </style>
