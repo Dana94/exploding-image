@@ -3,8 +3,8 @@
     <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
       <template v-if="i == 1">
         <div class="exploder">
-          <img src="./assets/stairs-books.png" class="books" alt :style="{top: booksTop+'px'}" />
-          <img src="./assets/stairs-ball.png" class="ball" alt :style="{top: ballTop+'px'}" />
+          <img src="./assets/larger-books.png" class="books" alt :style="{top: booksTop+'px'}" />
+          <img src="./assets/larger-ball.png" class="ball" alt :style="{top: ballTop+'px'}" />
         </div>
       </template>
     </section>
@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       scrolled: false,
-      booksTop: 362.45,
+      booksTop: 0, //362.45,
       ballTop: 0,
       currentY: 0
     };
@@ -28,7 +28,7 @@ export default {
       // scrolled up
 
       if (window.scrollY < this.currentY && window.scrollY % 10 == 0) {
-        console.log('up: ', window.scrollY)
+        console.log("up: ", window.scrollY);
         // console.log(window.scrollY % 10)
 
         this.booksTop -= 15;
@@ -36,7 +36,7 @@ export default {
       }
       // scrolled up
       else if (window.scrollY > this.currentY && window.scrollY % 10 == 0) {
-        console.log('down: ', window.scrollY)
+        console.log("down: ", window.scrollY);
         //console.log(window.scrollY % 10)
         this.booksTop += 15;
         this.ballTop -= 15;
@@ -47,10 +47,10 @@ export default {
     }
   },
   created() {
-    window.addEventListener("scroll", this.handleScroll);
+    //window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
-    window.removeEventListener("scroll", this.handleScroll);
+    //window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>
@@ -94,11 +94,17 @@ section {
 // position: fixed;
 //}
 img {
+  // position: absolute;
+  // left: 0;
+  // transition: 0.5s;
   position: absolute;
-  left: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  max-height: 100%;
+  max-width: 100%;
   transition: 0.5s;
-}
-.books {
-  left: 0.5rem;
 }
 </style>
