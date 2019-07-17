@@ -31,42 +31,38 @@ export default {
   methods: {
     handleScroll() {
       // back top top
-      console.log('height', window.innerHeight);
-      if(window.scrollY == 0){
+      console.log("height", window.innerHeight);
+      if (window.scrollY == 0) {
         console.log("back to top: ", window.scrollY);
         this.image1 = 0;
         this.image2 = 0;
         this.image3 = 0;
         this.image4 = 0;
         this.image5 = 0;
-
       }
       // scrolled up
-      else if (this.currentY > 0 && window.scrollY < this.currentY){// && window.scrollY % 10 == 0) {
+      else if (this.currentY > 0 && window.scrollY < this.currentY) {
         console.log("up: ", window.scrollY);
-        this.image1 -= 15.868505;
-        this.image2 -= 12.09029;
-        this.image3 -= 8.312075;
-        this.image4 -= 4.53386;
-        this.image5 -= .755645;
+        // this.image5 -= 15.868505;
+        this.image1 -= 3.6; //.755645;
+        this.image2 -= 0.6; //4.53386;
+        this.image3 -= -2.4;
+        this.image4 -= -5.4; //12.09029;
+        this.image5 -= -8.4;
       }
       // scrolled down
-      else if (this.currentY > 0 && window.scrollY > this.currentY){// && window.scrollY % 10 == 0) {
+      else if (this.currentY > 0 && window.scrollY > this.currentY) {
         console.log("down: ", window.scrollY);
-        //make sure their top value is not beyond the window.innerHeight value, give some room
-        // WIP, affects when scrolls up
-        if(this.image1 + 15.868505 < window.innerHeight &&
-          this.image2 + 12.09029 < window.innerHeight &&
-          this.image3 +  8.312075 < window.innerHeight &&
-          this.image4 + 4.53386 < window.innerHeight &&
-          this.image5 + .755645 < window.innerHeight){
-            this.image1 += 15.868505;
-            this.image2 += 12.09029;
-            this.image3 += 8.312075;
-            this.image4 += 4.53386;
-            this.image5 += .755645;
-        }
 
+        // if(this.image1 + 15.868505 < window.innerHeight){
+        // this.image1 += 15.868505;
+
+        this.image1 += 3.6; //.755645;
+        this.image2 += 0.6; //4.53386;
+        this.image3 += -2.4; //8.312075;
+        this.image4 += -5.4; //12.09029;
+        this.image5 += -8.4;
+        // }
       }
       this.currentY = window.scrollY;
     }
