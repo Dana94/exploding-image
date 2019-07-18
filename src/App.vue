@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <my-nav></my-nav>
-    <section v-for="i in 10" :key="i.id" :class="{dark: i % 2 == 0}">
+    <side-bar></side-bar>
+    <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
       <template v-if="i == 1">
         <!-- <div class="exploder">
           <img src="./assets/platform-1.png" class="image-1" alt :style="{top: image1+'px'}" />
@@ -17,6 +18,8 @@
 
 <script>
 import Nav from './components/Nav.vue';
+import SideBar from './components/SideBar.vue';
+
 export default {
   name: "app",
   // https://stackoverflow.com/questions/44804945/vue-js-how-to-react-to-page-scrolling
@@ -76,44 +79,31 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   components: {
-    myNav: Nav
+    myNav: Nav,
+    SideBar
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import './assets/base.scss';
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  //color: #2c3e50;
   margin-top: 60px;
-}
-
-h1,
-h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 
 section {
   height: 250px;
+  width: 75%;
+  margin: 0 auto;
   &.dark {
-    background-color: black;
+    background-color: #ffffff;
+    border-radius: 10px;
+    opacity: .25;
   }
 }
 //.exploder {

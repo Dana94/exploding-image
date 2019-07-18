@@ -23,6 +23,7 @@ export default {
     padding-left: 0;
     li {
       margin: 0 20px;
+      color: #f6f3f1;
       &.expand {
         position: absolute;
         right: 0;
