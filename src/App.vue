@@ -1,20 +1,22 @@
 <template>
   <div id="app">
+    <my-nav></my-nav>
     <section v-for="i in 10" :key="i.id" :class="{dark: i % 2 == 0}">
       <template v-if="i == 1">
-        <div class="exploder">
+        <!-- <div class="exploder">
           <img src="./assets/platform-1.png" class="image-1" alt :style="{top: image1+'px'}" />
           <img src="./assets/stairs-2.png" class="image-2" alt :style="{top: image2+'px'}" />
           <img src="./assets/stairs-3.png" class="image-3" alt :style="{top: image3+'px'}" />
           <img src="./assets/platform-4.png" class="image-4" alt :style="{top: image4+'px'}" />
           <img src="./assets/chair-5.png" class="image-5" alt :style="{top: image5+'px'}" />
-        </div>
+        </div> -->
       </template>
     </section>
   </div>
 </template>
 
 <script>
+import Nav from './components/Nav.vue';
 export default {
   name: "app",
   // https://stackoverflow.com/questions/44804945/vue-js-how-to-react-to-page-scrolling
@@ -72,6 +74,9 @@ export default {
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
+  },
+  components: {
+    myNav: Nav
   }
 };
 </script>
