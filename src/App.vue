@@ -47,25 +47,18 @@ export default {
       }
       // scrolled up
       else if (this.currentY > 0 && window.scrollY < this.currentY) {
-        console.log("up: ", window.scrollY);
-        // this.image5 -= 15.868505;
-        this.image1 -= 3.6; //.755645;
-        this.image2 -= 0.6; //4.53386;
+        this.image1 -= 3.6;
+        this.image2 -= 0.6;
         this.image3 -= -2.4;
-        this.image4 -= -5.4; //12.09029;
+        this.image4 -= -5.4;
         this.image5 -= -8.4;
       }
       // scrolled down
       else if (this.currentY > 0 && window.scrollY > this.currentY) {
-        console.log("down: ", window.scrollY);
-
-        // if(this.image1 + 15.868505 < window.innerHeight){
-        // this.image1 += 15.868505;
-
-        this.image1 += 3.6; //.755645;
-        this.image2 += 0.6; //4.53386;
-        this.image3 += -2.4; //8.312075;
-        this.image4 += -5.4; //12.09029;
+        this.image1 += 3.6;
+        this.image2 += 0.6;
+        this.image3 += -2.4;
+        this.image4 += -5.4;
         this.image5 += -8.4;
         // }
       }
