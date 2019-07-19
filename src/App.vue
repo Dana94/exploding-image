@@ -3,11 +3,6 @@
     <app-nav></app-nav>
     <side-bar></side-bar>
     <app-main></app-main>
-    <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
-      <template v-if="i == 1">
-        <!-- <exploder></exploder> -->
-      </template>
-    </section>
   </div>
 </template>
 
@@ -23,51 +18,8 @@ export default {
   // https://stackoverflow.com/questions/44804945/vue-js-how-to-react-to-page-scrolling
   data() {
     return {
-      image1: 0,
-      image2: 0,
-      image3: 0,
-      image4: 0,
-      image5: 0,
-      currentY: 0
+
     };
-  },
-  methods: {
-    handleScroll() {
-      // back top top
-      console.log("height", window.innerHeight);
-      if (window.scrollY == 0) {
-        console.log("back to top: ", window.scrollY);
-        this.image1 = 0;
-        this.image2 = 0;
-        this.image3 = 0;
-        this.image4 = 0;
-        this.image5 = 0;
-      }
-      // scrolled up
-      else if (this.currentY > 0 && window.scrollY < this.currentY) {
-        this.image1 -= 3.6;
-        this.image2 -= 0.6;
-        this.image3 -= -2.4;
-        this.image4 -= -5.4;
-        this.image5 -= -8.4;
-      }
-      // scrolled down
-      else if (this.currentY > 0 && window.scrollY > this.currentY) {
-        this.image1 += 3.6;
-        this.image2 += 0.6;
-        this.image3 += -2.4;
-        this.image4 += -5.4;
-        this.image5 += -8.4;
-        // }
-      }
-      this.currentY = window.scrollY;
-    }
-  },
-  created() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  destroyed() {
-    window.removeEventListener("scroll", this.handleScroll);
   },
   components: {
     appNav: Nav,
@@ -89,16 +41,7 @@ export default {
   margin-top: 60px;
 }
 
-section {
-  height: 250px;
-  width: 75%;
-  margin: 0 auto;
-  &.dark {
-    background-color: #ffffff;
-    border-radius: 10px;
-    opacity: .25;
-  }
-}
+
 
 
 </style>
