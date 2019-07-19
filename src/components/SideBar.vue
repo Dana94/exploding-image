@@ -1,5 +1,9 @@
 <template>
   <div class="side-bar">
+    <template v-for="i in 3">
+       <img src="../assets/site-line.svg" alt="" :key="i.id">
+        <img src="../assets/site-dot.svg" alt="" :key="i.id" class="dot-img">
+    </template>
 
   </div>
 </template>
@@ -10,12 +14,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .side-bar {
     height: 100vh;
     width: 20px;
-    background-color: yellowgreen;
     float: left;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    .dot-img {
+      width: 20px;
+    }
   }
 </style>
