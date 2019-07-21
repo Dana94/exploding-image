@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <app-nav></app-nav>
+    <!-- <app-nav></app-nav> -->
     <side-bar></side-bar>
-    <app-main></app-main>
+    <!-- <app-main></app-main> -->
   </div>
 </template>
 
