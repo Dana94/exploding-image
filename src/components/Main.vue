@@ -20,7 +20,7 @@
       </b-col>
       <b-col cols="6">Column</b-col>
     </b-row>
-    <b-row class="section" v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
+    <b-row v-for="i in 4" :key="i.id">
        <b-col cols="12">Column</b-col>
     </b-row>
   </b-container>
