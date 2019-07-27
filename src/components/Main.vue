@@ -9,22 +9,23 @@
     </div>
     <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
     </section>
-  </main> -->
+  </main>-->
 
   <b-container>
     <b-row>
-      <b-col cols="6" class="text-left">
+      <b-col cols="12" md="6" class="text-left">
         <h1>Title</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button type="button" class="btn btn-warning">Explore</button>
       </b-col>
-      <b-col cols="6">Column</b-col>
+      <b-col cols="12" md="6">Image</b-col>
     </b-row>
-    <b-row v-for="i in 4" :key="i.id">
-       <b-col cols="12">Column</b-col>
+    <b-row v-for="i in 4" :key="i.id" class>
+      <b-col cols="12" class="section">
+        Column
+      </b-col>
     </b-row>
   </b-container>
-
 </template>
 
 <script>
@@ -37,37 +38,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// main {
-//   width: 75%;
-//   margin: 0 auto;
-//   .title {
-//     float: left;
-//     display: flex;
-//     flex-direction: column;
-//     * {
-//       display: inline-flex;
-//     }
-//   }
-
-// section {
-//   height: 250px;
-//   margin: 0 auto;
-//   &.dark {
-//     background-color: #ffffff;
-//     border-radius: 10px;
-//     opacity: 0.25;
-//   }
-//   @media screen and (max-width: 425px) {
-//     // margin-left: 17%;
-//   }
-// }
-
 .section {
   height: 250px;
-  &.dark > div {
-    background-color: #ffffff;
-    border-radius: 10px;
-    opacity: 0.25;
+  background-color: #ffffff30;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  .content {
+    color: white;
   }
 }
 </style>

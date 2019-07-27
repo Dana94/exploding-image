@@ -16,10 +16,9 @@ export default {
 
 <style lang="scss" scoped>
   .side-bar {
-    height: 100vh;
     width: 20px;
     float: left;
-    margin-left: 20px;
+    margin: 0 20px;
     display: flex;
     flex-direction: column;
     .dot-img {
