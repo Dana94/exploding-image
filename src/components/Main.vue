@@ -1,11 +1,11 @@
 <template>
   <b-container>
-    <b-row>
+    <!-- <b-row> -->
 
-          <exploder></exploder>
-      
-    </b-row>
-    <b-row>
+    <exploder></exploder>
+
+    <!-- </b-row> -->
+    <b-row class="main-content">
       <b-col cols="12" md="6" class="text-left">
         <h1>Title</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -35,6 +35,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main-content {
+  margin: 2rem;
+  height: 24rem;
+}
 .section {
   height: 250px;
   background-color: #ffffff30;

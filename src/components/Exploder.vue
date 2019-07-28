@@ -62,9 +62,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//.exploder {
-// position: fixed;
-//}
+.exploder {
+  opacity: 0.75;
+}
 img {
   // position: absolute;
   // left: 0;
