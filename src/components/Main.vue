@@ -1,26 +1,21 @@
 <template>
-  <!-- <main>
-    <div class="title">
-      <h1>Title</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <button>Explore</button>
-    </div>
-    <div>
-    </div>
-    <section v-for="i in 5" :key="i.id" :class="{dark: i % 2 == 0}">
-    </section>
-  </main>-->
-
   <b-container>
+    <b-row>
+
+          <exploder></exploder>
+      
+    </b-row>
     <b-row>
       <b-col cols="12" md="6" class="text-left">
         <h1>Title</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <button type="button" class="btn btn-warning">Explore</button>
       </b-col>
-      <b-col cols="12" md="6">Image</b-col>
+      <!-- <b-col cols="12" md="6">
+        <exploder></exploder>
+      </b-col> -->
     </b-row>
-    <b-row v-for="i in 4" :key="i.id" class="section">
+    <b-row v-for="i in 3" :key="i.id" class="section">
       <b-col cols="12" md="6" class="content">Image</b-col>
       <b-col cols="12" md="6" class="text content text-left">
         <h1>Title</h1>

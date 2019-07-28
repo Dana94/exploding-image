@@ -72,7 +72,7 @@ img {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: 72%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   max-height: 100%;
